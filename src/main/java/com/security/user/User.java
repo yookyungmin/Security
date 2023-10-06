@@ -11,6 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity @Getter
+/*JPA에서는 프록시 생성을 위해 @NoArgsConstructor를 강제하게 되는데
+이때 ACCESSLEVEL을 따로 걸지 않으면 외부에서 생성자에 쉽게 접근할 수 있게 된다.
+유지보수성을 최대화하고 접근가능성을 최소화하기 위해
+ACCESSLEVEL을 PROTECTED 이하로 거는 것이 좋다.
+*/
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "USERS")
 public class User {
